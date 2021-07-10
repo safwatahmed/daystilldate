@@ -1,63 +1,72 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Days Till Date Calculator</title>
-<link rel="stylesheet" href="assets/css/main.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>Days Till Date Calculator</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="theme-color" content="#ffb4b4" />
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 
 
-<meta name="theme-color" content="#ffb4b4" />
-<link rel="manifest" href="manifest.json">
-<script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js');
-    }
-</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L0TBR895DV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L0TBR895DV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+      gtag('config', 'G-L0TBR895DV');
+    </script>
 
-  gtag('config', 'G-L0TBR895DV');
-</script>
+  </head>
+  <body onload="checkSetCookies()">
+    <!--- Header -->
+    <div class="header">
+      <img src="/assets/images/icons/icon-96x96.png" height="32 px" width="32 px" class="header_icon">
+      <p class="header_text">DaysTillDate</p>
 
-</head>
-<body onload="checkCookie()">
+    </div>
 
 
 
 
-<div class="main_div">
-<div id="pre_calc" class="pre_calc hidden">
-<p class="big_text">Countdown to any date and event as you wish</p>
-<p class="target_text">Target Date</p>
-<input type="date" id="dateInput">
+    <!-- Main Container -->
 
-<p>Event Name</p>
-<input type="text" id="eventInput">
-<br> <br>
+    <div class="main_div">
+    <div id="pre_calc" class="pre_calc hidden">
+    <p class="big_text">Countdown to any date and event as you wish</p>
+    <p class="target_text" required>Enter Date</p>
+    <input type="date" id="dateInput" required>
 
-<button class="calculate_button" onclick="daysRemaining()">Calculate</button>
+    <p>Event Name</p>
+    <input type="text" id="eventInput" required>
+    <br> <br>
 
-</div>
+    <button class="calculate_button" onclick="setEvent()">Calculate</button>
 
-<div id="post_calc" class="hidden">
-<p id="result" class="timer_text"></p>
-<p class="till">till</p>
-<p id="event_name" class="timer_event_name"></p>
-<button class="change_button" onclick="changeSetting()">Change</button>
-<p id="demo"></p>
+    </div>
 
-</div>
+    <div id="post_calc" class="hidden">
+    <p id="result" class="timer_text"></p>
+    <p id="till" class="till">till</p>
+    <p id="event_name" class="timer_event_name"></p>
+    <button class="change_button" onclick="changeSetting()">Change</button>
+    <p id="demo"></p>
 
-</div>
+    </div>
 
-</body>
+    </div>
 
-<script type="text/javascript" src="assets/js/basic.min.js"></script>
+  </body>
+
+  <script type="text/javascript" src="assets/js/main.js"></script>
 
 </html>
 

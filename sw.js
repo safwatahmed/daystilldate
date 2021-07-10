@@ -1,4 +1,4 @@
-const version = "0.0.02";
+const version = "0.0.3";
 const cacheName = `dtd-${version}`;
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -6,8 +6,9 @@ self.addEventListener('install', e => {
       return cache.addAll([
         `/`,
         `/index.html`,
-        `/assets/css/main.min.css`,
-        `/assets/js/basic.min.js`
+        `/assets/css/maincss`,
+        `/assets/js/main.js`,
+        'https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js'
       ])
           .then(() => self.skipWaiting());
     })

@@ -10,12 +10,32 @@ body {
 
 
 .header {
-  background: rgba(242, 242, 242, 0.2);
+  background:#fff;
   width:100%;
-  margin:0;
+  margin:0 0 0 0;
   left: 0px;
   top: 0px;
-  padding: 8px;
+  height: 64px;
+  position: absolute;
+  align-items: center;
+}
+
+.header_icon {
+  float: left;
+  margin: 16px;
+}
+
+.header_text {
+  float: left;
+  margin: 16px 16px 16px 0px ;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.header_menu {
+  float: right;
+  margin: 16px;
+  display:none!important;
 }
 
 
@@ -33,7 +53,7 @@ margin-top: 0;
 
 .main_div {
 position: relative;
-top:24px;
+top:96px;
 margin: auto;
 padding:24px;
 width: 70%;
