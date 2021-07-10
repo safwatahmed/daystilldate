@@ -101,9 +101,9 @@ function daysRemaining(date,name) {
   }
   // On Event Date
   else if (result == 0) {
-    document.getElementById("result").innerHTML = "Today is";
+    document.getElementById("result").innerHTML = "Today";
     document.getElementById("event_name").innerHTML = eventName;
-    document.getElementById("till").classList.add("hidden")
+    document.getElementById("till").innerHTML="is";
     document.title = `Today is${eventName}`;
 
     //Confetti
@@ -129,40 +129,6 @@ function daysRemaining(date,name) {
   document.getElementById("pre_calc").classList.add("hidden")  
 
 }
-
-
-  // Calculation Old
-
-  function daysRemaining2(date,name) {
-  
-    const d = new Date();
-    var targetDate = document.getElementById("dateInput").value;
-      setCookie("Date",targetDate,365);
-    var eventName = document.getElementById("eventInput").value;
-  
-  
-    var dateNow = d;
-    var targetDate = new Date(targetDate);
-  
-  
-    var time_difference = targetDate.getTime() - dateNow.getTime();
-  
-    var day = " days"
-    var result = Math.ceil(time_difference / (1000 * 60 * 60 * 24));
-  
-    if (result == 1) {var day = " day";};
-  
-    setCookie("Event",eventName,365);
-  
-    return document.getElementById("result").innerHTML =
-         result + day,
-         document.getElementById("event_name").innerHTML =
-         eventName,
-         document.title = result + day + " till " + eventName,
-         document.getElementById("pre_calc").classList.add("hidden"),
-         document.getElementById("post_calc").classList.remove("hidden")
-         ;
-               }
 
 // Change Current Setting
 
