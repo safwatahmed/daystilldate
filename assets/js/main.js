@@ -47,10 +47,19 @@ function checkSetCookies() {
 
 // Set / Update event date and name
 function setEvent() {
+
   
   // Assigning variables from input fields
   var targetDate = document.getElementById("dateInput").value;
   var eventName = document.getElementById("eventInput").value;
+
+  // Validation Check if input fields are empty
+  if (targetDate == "" || eventName == "") {
+    // When either date or event name is empty
+    alert("You must enter both a valid date and and event name!");
+  }
+
+  else {
 
   // Setting the cookies
   setCookie("Date",targetDate,365);
@@ -58,6 +67,9 @@ function setEvent() {
 
   // Running the calculation function
   daysRemaining(targetDate,eventName) ;
+  }
+
+
 }
 
 // Day or days
@@ -71,6 +83,14 @@ function dayOrDays(result) {
     r = " days";
   }
   return r;
+}
+
+// Audio Control
+
+function confettiPlayback() {
+  var confetti_mp3 = document.getElementById("confetti_sound");
+  confetti();
+  confetti_mp3.play();
 }
 
 
@@ -94,24 +114,27 @@ function daysRemaining(date,name) {
   // Checking the value and executing actions accordingly
   // Days Remaining till Event Date
   if (result > 0) {
+    // Event Date is in the future
     day = dayOrDays(result);
     document.getElementById("result").innerHTML = result + day;
     document.getElementById("event_name").innerHTML = eventName;
     document.title = `${result + day} till ${eventName}`;
   }
-  // On Event Date
+
   else if (result == 0) {
+    // On Event Date
     document.getElementById("result").innerHTML = "Today";
     document.getElementById("event_name").innerHTML = eventName;
     document.getElementById("till").innerHTML="is";
-    document.title = `Today is${eventName}`;
+    document.title = `Today is ${eventName}`;
 
     //Confetti
-    confetti();
+    confettiPlayback();
 
   }
 
   else {
+    // Event is in the past
     result = result * -1;
     day = dayOrDays(result);
     document.getElementById("result").innerHTML = result + day;
@@ -120,15 +143,18 @@ function daysRemaining(date,name) {
     document.title = `${result + day} since ${eventName}`;
 
     // Confetti
-    confetti();
+    confettiPlayback();
 
   }
+
 
   //Make Result Page Visible
   document.getElementById("post_calc").classList.remove("hidden")
   document.getElementById("pre_calc").classList.add("hidden")  
 
 }
+
+
 
 // Change Current Setting
 

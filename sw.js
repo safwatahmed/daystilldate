@@ -8,7 +8,8 @@ self.addEventListener('install', e => {
         `/index.html`,
         `/assets/css/maincss`,
         `/assets/js/main.js`,
-        'https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js'
+        `assets/mp3/confetti.mp3`,
+        `https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js`
       ])
           .then(() => self.skipWaiting());
     })
