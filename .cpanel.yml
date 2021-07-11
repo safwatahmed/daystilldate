@@ -1,9 +1,0 @@
----
-deployment:
- tasks:
- - export DEPLOYPATH=/home/safwtoqk/daystilldate.com/
- - /bin/cp index.html $DEPLOYPATH
- - /bin/cp sw.js $DEPLOYPATH
- - /bin/cp favicon.ico $DEPLOYPATH
- - /bin/cp .htaccess $DEPLOYPATH
- - /bin/cp manifest.json $DEPLOYPATH
